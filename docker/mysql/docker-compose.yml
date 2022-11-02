@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  mysql-db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "2300:2300"
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/django/Dockerfile
+    env_file: .env
+    restart: always
+    volumes:
+      - .:/app/
+    depends_on:
+      - mysql-db
+    working_dir: "/app/dashboard_project"
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+volumes:
+  mysql_data:

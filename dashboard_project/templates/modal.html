@@ -1,0 +1,103 @@
+
+<form id="credit_form">
+<!-- Modal Balance Update -->
+  <!-- The Modal -->
+  <div class="modal fade" id="credit-modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content bg-dark">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-light">Credit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="text-light">Please enter a value without decimal</label>
+                <input type="text" class="form-control" placeholder="Amount" id="credit_balance">
+            </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success" id="submit-credit">Submit</button>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<form id="debit_form">
+    <!-- Modal Balance Update -->
+      <!-- The Modal -->
+      <div class="modal fade" id="debit-modal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content bg-dark">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-light">Debit</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="text-light">Please enter a value without decimal</label>
+                    <input type="text" class="form-control" placeholder="Amount" id="debit_balance">
+                </div>
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success" id="submit-debit">Submit</button>
+            </div>
+              
+          </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+<form method="get" action="{% url 'delete_user'  %}" id="delete_form">
+    {% csrf_token %}
+<!-- Modal Delete User -->
+  <!-- The Modal -->
+  <div class="modal fade" id="deleteUser">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content bg-dark">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Confirm user deletion</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      
+        <!-- Modal body -->
+        <div class="modal-body">
+            <p class="text-danger"> Are you sure you want to delete user? {{ user.firstname }}</p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success" id="confirm-delete">Confirm</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
+</form>
+
